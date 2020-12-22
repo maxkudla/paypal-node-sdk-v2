@@ -1,56 +1,29 @@
-## Deprecation Notice:
-This SDK is deprecated. You can continue to use it, but no new features or support requests will be accepted.
-For alternatives, please visit [the current SDK homepage on the PayPal Developer Portal](https://developer.paypal.com/docs/api/rest-sdks/)
-
-# PayPal REST SDK
-
-Continuous integration status:
-
-[![Build Status](https://travis-ci.org/paypal/PayPal-node-SDK.svg?branch=master)](https://travis-ci.org/paypal/PayPal-node-SDK) [![Coverage Status](https://coveralls.io/repos/paypal/PayPal-node-SDK/badge.svg?branch=master)](https://coveralls.io/r/paypal/PayPal-node-SDK?branch=master) [![Gitter chat](https://badges.gitter.im/gitterHQ/gitter.png)](https://gitter.im/paypal/PayPal-node-SDK)
+# PayPal Node SDK
 
 NPM status:
 
-[![NPM version](https://badge.fury.io/js/paypal-rest-sdk.svg)](http://badge.fury.io/js/paypal-rest-sdk)
+[![NPM version](https://badge.fury.io/js/paypal-node-sdk.svg)](http://badge.fury.io/js/paypal-node-sdk)
 [![Dependency Status](https://david-dm.org/paypal/PayPal-node-SDK.svg)](https://david-dm.org/paypal/PayPal-node-SDK)
 
-Repository for PayPal's Node SDK (node.js version >=0.6.x) and Node samples for REST API. For a full working app and documentation, have a look at the [PayPal Node SDK Page](http://paypal.github.io/PayPal-node-SDK/).
+Repository for PayPal's Node SDK and Node samples for REST API. For a full working app and documentation, have a look at the [PayPal Node SDK Page](http://benbucksch.github.io/PayPal-node-SDK/).
 
-> **2.0 Beta**: We now have a 2.0 beta available, featuring promise support, and a revamped integration. Check out the [`2.0-beta`](https://github.com/paypal/PayPal-node-SDK/tree/2.0-beta) branch for details, or run `npm install paypal-rest-sdk@beta`.
-
-> **v1.0.0 notice**: If upgrading from paypal rest sdk 0.*, Please view Breaking Changes in release_notes.md
-
-> **The Payment Card Industry (PCI) Council has [mandated](http://blog.pcisecuritystandards.org/migrating-from-ssl-and-early-tls) that early versions of TLS be retired from service.  All organizations that handle credit card information are required to comply with this standard. As part of this obligation, PayPal is updating its services to require TLS 1.2 for all HTTPS connections. At this time, PayPal will also require HTTP/1.1 for all connections. See the [PayPal TLS Update repository](https://github.com/paypal/tls-update) for more information.**
-
-> **TLSv1_2 warning: Due to PCI compliance, merchant servers using a version of TLS that does not support TLSv1_2 will receive a warning.
-
-> **To verify that your server supports PCI compliant version of TLS, test against the PayPal sandbox environment which uses TLS 1.2.
-
-## Direct Credit Card Support
-> **Important: The PayPal REST API no longer supports new direct credit card integrations.**  Please instead consider [Braintree Direct](https://www.braintreepayments.com/products/braintree-direct); which is, PayPal's preferred integration solution for accepting direct credit card payments in your mobile app or website. Braintree, a PayPal service, is the easiest way to accept credit cards, PayPal, and many other payment methods.
-
-## PayPal Checkout v2
-Please note that if you are integrating with PayPal Checkout, this SDK and corresponding API [v1/payments](https://developer.paypal.com/docs/api/payments/v1/) are in the process of being deprecated.
-
-We recommend that you integrate with API [v2/checkout/orders](https://developer.paypal.com/docs/api/orders/v2/) and [v2/payments](https://developer.paypal.com/docs/api/payments/v2/). Please refer to the [Checkout Node.js SDK](https://github.com/paypal/Checkout-NodeJS-SDK) to continue with the integration.
-
-## 2.0 Release Candidate!
-We're releasing a [brand new version of our SDK!](https://github.com/paypal/PayPal-node-SDK/tree/2.0-beta) 2.0 is currently at release candidate status, and represents a full refactor, with the goal of making all of our APIs extremely easy to use. 2.0 includes all of the existing APIs (except payouts), and includes the new Orders API (disputes and Marketplace coming soon). Check out the [FAQ and migration guide](https://github.com/paypal/PayPal-node-SDK/tree/2.0-beta/docs), and let us know if you have any suggestions or issues!
+> **2.0**: 2.0 now supports async functions, and the subscription API.
 
 ## Installation
 
 ```sh
-npm install paypal-rest-sdk
+npm install paypal-node-sdk
 ```
 
 ## Usage
 To write an app using the SDK
 
   * Register for a developer account and get your client_id and secret at [PayPal Developer Portal](https://developer.paypal.com).
-  * Add dependency 'paypal-rest-sdk' in your package.json file.
-  * Require 'paypal-rest-sdk' in your file
+  * Add dependency 'paypal-node-sdk' in your package.json file.
+  * Require 'paypal-node-sdk' in your file
 
     ```js
-    var paypal = require('paypal-rest-sdk');
+    var paypal = require('paypal-node-sdk');
     ```
   * Create config options, with parameters (mode, client_id, secret).
 
@@ -65,7 +38,7 @@ To write an app using the SDK
   * Invoke the rest api (eg: create a PayPal payment) with required parameters (eg: data, config_options, callback).
 
     ```js
-    var create_payment_json = {
+    var newPayment = {
         "intent": "sale",
         "payer": {
             "payment_method": "paypal"
@@ -92,18 +65,10 @@ To write an app using the SDK
         }]
     };
     
-    
-    paypal.payment.create(create_payment_json, function (error, payment) {
-        if (error) {
-            throw error;
-        } else {
-            console.log("Create Payment Response");
-            console.log(payment);
-        }
-    });
+    var payment = await paypal.payment.create(newPayment);
     ```
 
-  * For creating [Subscription Payments](https://developer.paypal.com/docs/integration/direct/create-billing-plan/), check out the [samples](/samples/subscription) for creating planned sets of future recurring payments at periodic intervals.
+  * For creating [Subscription Payments](https://developer.paypal.com/docs/subscriptions/full-integration/subscription-management/), check out the [samples](/samples/subscription) for creating planned sets of future recurring payments at periodic intervals.
 
   * To create [Future Payments](https://developer.paypal.com/docs/integration/mobile/make-future-payment/), check out this [sample](/samples/payment/create_future_payment.js) for executing future payments for a customer who has granted consent on a mobile device.
 
@@ -183,7 +148,7 @@ NOCK_OFF=true mocha -t 60000
 
 
 ## Debugging
-   * As of version 1.6.2, full request/response are logged for non production environments with PAYPAL_DEBUG set
+   * Full request/response are logged for non production environments with PAYPAL_DEBUG set
 
      You can set the environment variable on the command line by running `PAYPAL_DEBUG=1 node <path of script>` or by executing `export PAYPAL_DEBUG=1` and then running your Node.js script. Please see your command terminal/shell's manual pages for specific information.
 
