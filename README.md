@@ -7,7 +7,11 @@ NPM status:
 
 Repository for PayPal's Node SDK and Node samples for REST API. For a full working app and documentation, have a look at the [PayPal Node SDK Page](http://benbucksch.github.io/PayPal-node-SDK/).
 
-> **2.0**: 2.0 now supports async functions, and the subscription API.
+## Releases
+
+### **2.0**
+* Uses `async` functions, so you can use `await` or Promises
+* Now supports the subscription API
 
 ## Installation
 
@@ -19,8 +23,8 @@ npm install paypal-node-sdk
 To write an app using the SDK
 
   * Register for a developer account and get your client_id and secret at [PayPal Developer Portal](https://developer.paypal.com).
-  * Add dependency 'paypal-node-sdk' in your package.json file.
-  * Require 'paypal-node-sdk' in your file
+  * Add dependency `paypal-node-sdk` in your package.json file.
+  * Require `paypal-node-sdk` in your file
 
     ```js
     var paypal = require('paypal-node-sdk');
@@ -35,7 +39,7 @@ To write an app using the SDK
     });
     ```
   * For multiple configuration support, have a look at the [sample](/samples/configuration/multiple_config.js)
-  * Invoke the rest api (eg: create a PayPal payment) with required parameters (eg: data, config_options, callback).
+  * Invoke the rest api (eg: create a PayPal payment) with required parameters (eg: data, config_options).
 
     ```js
     var newPayment = {
@@ -97,17 +101,17 @@ To write an app using the SDK
     paypal.openIdConnect.authorizeUrl({'scope': 'openid profile'});
 
     // Get tokeninfo with Authorize code
-    paypal.openIdConnect.tokeninfo.create("Replace with authorize code", function(error, tokeninfo){
+    paypal.openIdConnect.tokeninfo.create("Replace with authorize code", (error, tokeninfo) => {
       console.log(tokeninfo);
     });
 
     // Get tokeninfo with Refresh code
-    paypal.openIdConnect.tokeninfo.refresh("Replace with refresh_token", function(error, tokeninfo){
+    paypal.openIdConnect.tokeninfo.refresh("Replace with refresh_token", (error, tokeninfo) => {
       console.log(tokeninfo);
     });
 
     // Get userinfo with Access code
-    paypal.openIdConnect.userinfo.get("Replace with access_code", function(error, userinfo){
+    paypal.openIdConnect.userinfo.get("Replace with access_code", (error, userinfo) => {
       console.log(userinfo);
     });
 
