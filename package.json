@@ -2,7 +2,7 @@
   "author": "Beonex and PayPal",
   "name": "paypal-node-sdk",
   "description": "Node SDK with promises and subscription API for PayPal REST v1 APIs",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "homepage": "https://github.com/benbucksch/PayPal-node-SDK",
   "keywords": [
     "paypal",
