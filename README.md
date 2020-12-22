@@ -3,9 +3,9 @@
 NPM status:
 
 [![NPM version](https://badge.fury.io/js/paypal-node-sdk.svg)](http://badge.fury.io/js/paypal-node-sdk)
-[![Dependency Status](https://david-dm.org/paypal/PayPal-node-SDK.svg)](https://david-dm.org/paypal/PayPal-node-SDK)
+[![Dependency Status](https://david-dm.org/benbucksch/PayPal-node-SDK.svg)](https://david-dm.org/benbucksch/PayPal-node-SDK)
 
-Repository for PayPal's Node SDK and Node samples for REST API. For a full working app and documentation, have a look at the [PayPal Node SDK Page](http://benbucksch.github.io/PayPal-node-SDK/).
+Repository for PayPal's Node SDK and Node samples for REST API. For a full working app and documentation, have a look at the [PayPal Node SDK Page](http://paypal.github.io/PayPal-node-SDK/).
 
 ## Releases
 

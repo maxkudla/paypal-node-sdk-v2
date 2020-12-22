@@ -1,6 +1,12 @@
 PayPal Node SDK release notes
 =============================
 
+v2.0.0
+------
+* Use `async` functions
+* Support the subscription API
+* Keep (revert revert) HTTP config host precedence
+
 v1.8.1
 ------
 * Revert HTTP config host precedence order change due to issue with some configs.
