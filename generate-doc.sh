@@ -13,10 +13,6 @@ cp -r docs/* ../gh-pages/
 
 cd ../gh-pages
 
-# Set identity
-git config --global user.email "travis@travis-ci.org"
-git config --global user.name "Travis"
-
 # Add branch
 git init
 git remote add origin https://${GH_TOKEN}@github.com/benbucksch/PayPal-node-SDK.git > /dev/null
