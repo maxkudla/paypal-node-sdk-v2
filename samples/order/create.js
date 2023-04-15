@@ -4,37 +4,19 @@ var paypal = require('../../');
 require('../configure');
 
 var create_payment_json = {
-    "intent": "order",
-    "payer": {
-        "payment_method": "paypal"
-    },
-    "redirect_urls": {
-        "return_url": "http://return.url",
-        "cancel_url": "http://cancel.url"
-    },
-    "transactions": [{
-        "item_list": {
-            "items": [{
-                "name": "item",
-                "sku": "item",
-                "price": "1.00",
-                "currency": "USD",
-                "quantity": 1
-            }]
-        },
-        "amount": {
-            "currency": "USD",
-            "total": "1.00"
-        },
-        "description": "This is the payment description."
-    }]
+    "intent": "CAPTURE",
+    "purchase_units": [
+        {
+            "amount": {
+                "currency_code": "USD",
+                "value": "100.00"
+            },
+        }
+    ],
 };
 
-paypal.payment.create(create_payment_json, function (error, payment) {
-    if (error) {
-        throw error;
-    } else {
-        console.log("Create Payment Response");
-        console.log(payment);
+paypal.order.create(create_payment_json, {
+    headers: {
+        "PayPal-Request-Id": "d9f80740-38f0-11e8-b467-0ed5f89f7183"
     }
-});
+}).then(console.log).catch(console.error)
