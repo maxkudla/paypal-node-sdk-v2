@@ -1,9 +1,9 @@
 {
-  "author": "Beonex and PayPal",
-  "name": "paypal-node-sdk",
+  "author": "Max Kudla",
+  "name": "paypal-node-sdk-v2",
   "description": "Node SDK with promises and subscription API for PayPal REST v1 APIs",
   "version": "2.0.3",
-  "homepage": "https://github.com/benbucksch/PayPal-node-SDK",
+  "homepage": "https://github.com/maxkudla/paypal-node-sdk-v2",
   "keywords": [
     "paypal",
     "node",
@@ -16,12 +16,12 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/benbucksch/PayPal-node-SDK.git"
+    "url": "https://github.com/maxkudla/paypal-node-sdk-v2.git"
   },
   "bugs": {
-    "url": "https://github.com/benbucksch/PayPal-node-SDK/issues"
+    "url": "https://github.com/maxkudla/paypal-node-sdk-v2/issues"
   },
-  "license": "https://github.com/benbucksch/PayPal-node-SDK/blob/master/LICENSE",
+  "license": "https://github.com/maxkudla/paypal-node-sdk-v2/blob/master/LICENSE",
   "engines": {
     "node": ">= v8.0.0"
   },
