@@ -11,8 +11,10 @@ Repository for PayPal's Node SDK V2 and Node samples for REST API. For a full wo
 
 ###V1
 
+Notification (webhooks) ✅
 
 ###V2
+
 Order ✅
 
 *Notice: All other resources work with v1 that might be deprecated.*
