@@ -2,10 +2,21 @@
 
 NPM status:
 
-[![NPM version](https://badge.fury.io/js/paypal-node-sdk.svg)](http://badge.fury.io/js/paypal-node-sdk)
-[![Dependency Status](https://david-dm.org/benbucksch/PayPal-node-SDK.svg)](https://david-dm.org/benbucksch/PayPal-node-SDK)
+[![NPM version](https://badge.fury.io/js/paypal-node-sdk-v2.svg)](http://badge.fury.io/js/paypal-node-sdk-v2)
+[![Dependency Status](https://david-dm.org/benbucksch/paypal-node-sdk-v2.svg)](https://david-dm.org/benbucksch/paypal-node-sdk-v2)
 
-Repository for PayPal's Node SDK and Node samples for REST API. For a full working app and documentation, have a look at the [PayPal Node SDK Page](http://paypal.github.io/PayPal-node-SDK/).
+Repository for PayPal's Node SDK V2 and Node samples for REST API. For a full working app and documentation, have a look at the [PayPal Node SDK V2 Page](http://paypal.github.io/paypal-node-sdk-v2/).
+
+## Resource support
+
+###V1
+
+
+###V2
+Order ✅
+
+*Notice: All other resources work with v1 that might be deprecated.*
+
 
 ## Releases
 
@@ -16,18 +27,18 @@ Repository for PayPal's Node SDK and Node samples for REST API. For a full worki
 ## Installation
 
 ```sh
-npm install paypal-node-sdk
+npm install paypal-node-sdk-v2
 ```
 
 ## Usage
 To write an app using the SDK
 
   * Register for a developer account and get your client_id and secret at [PayPal Developer Portal](https://developer.paypal.com).
-  * Add dependency `paypal-node-sdk` in your package.json file.
-  * Require `paypal-node-sdk` in your file
+  * Add dependency `paypal-node-sdk-v2` in your package.json file.
+  * Require `paypal-node-sdk-v2` in your file
 
     ```js
-    var paypal = require('paypal-node-sdk');
+    var paypal = require('paypal-node-sdk-v2');
     ```
   * Create config options, with parameters (mode, client_id, secret).
 
